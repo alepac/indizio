@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica Codice</title>
+    <style>
+        body {
+            display: flex; /* Attiva Flexbox per il body */
+            justify-content: center; /* Centra orizzontalmente */
+            align-items: center; /* Centra verticalmente */
+            min-height: 100vh; /* Assicura che il body occupi almeno l'intera altezza della viewport */
+            margin: 0; /* Rimuove i margini predefiniti del body */
+            background-color: #f0f0f0; /* Un leggero sfondo grigio */
+            font-family: sans-serif; /* Un font di sistema semplice */
+        }
+
+        .container {
+            text-align: center; /* Centra il contenuto del container */
+            padding: 20px;
+            border-radius: 8px; /* Arrotonda gli angoli del container */
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Aggiunge una leggera ombra */
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px; /* Larghezza fissa per l'input */
+            box-sizing: border-box; /* Include padding e border nella larghezza */
+            margin-bottom: 10px; /* Spazio tra input e bottone */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Stili per il messaggio di errore */
+        .errore {
+          color: red;
+          margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Inserisci il risultato:</h1>
+        <input type="text" id="codice" placeholder="Codice">
+        <button onclick="verificaCodice()">Verifica</button>
+        <div id="risultato" style="display:none;">
+            <h2>Hai trovato il tesoro!</h2>
+            <p style="text-align: left;">
+                <b><i>N</i></b>ostalgia di un tempo, in questo oggetto si cela,<br/>
+                <b><i>E</i></b>ra digitale non c'era, solo solchi e puntina, una storia vera.
+            </p>
+        </div>
+        <div id="messaggioErrore" class="errore" style="display: none;">Codice errato. Riprova.</div>
+    </div>
+
+    <script>
+        function verificaCodice() {
+            var codiceInserito = document.getElementById("codice").value;
+            // Sostituisci "123" con il risultato corretto dell'equazione
+            if (codiceInserito.toLowerCase() === "2kπ") {
+                document.getElementById("risultato").style.display = "block";
+                document.getElementById("messaggioErrore").style.display = "none"; //nasconde il messaggio di errore se presente
+            } else {
+                document.getElementById("messaggioErrore").style.display = "block";
+                document.getElementById("risultato").style.display = "none"; //nasconde il messaggio di vittoria se presente
+            }
+        }
+    </script>
+</body>
+</html>
